@@ -6,8 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-
-res = HTTParty.get('http://ufc-data-api.ufc.com/api/v3/iphone/fighters/title_holders')
+res = HTTParty.get('http://ufc-data-api.ufc.com/api/v3/iphone/fighters')
 
 res.each do |fighter_data| 
   Fighter.create(

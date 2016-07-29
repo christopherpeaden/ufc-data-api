@@ -8,6 +8,12 @@ class FightersController < ApplicationController
     render json: @fighters
   end
 
+  def title_holders
+    @title_holders = Fighter.all.where(title_holder: true)
+
+    render json: @title_holders
+  end
+
   # GET /fighters/1
   def show
     render json: @fighter
