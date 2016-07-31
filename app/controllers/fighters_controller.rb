@@ -3,9 +3,14 @@ class FightersController < ApplicationController
 
   # GET /fighters
   def index
-    @fighters = Fighter.all
-
-    render json: @fighters
+    if params[:name]
+      #@fighters = Fighter.where(last_name: params[:name])
+      @fighters = Fighter.where("last_name like ?", "%#{params[:name]}%")
+      render json: @fighters
+    else
+      @fighters = Fighter.all
+      render json: @fighters
+    end
   end
 
   def title_holders
